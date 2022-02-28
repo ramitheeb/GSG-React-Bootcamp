@@ -3,7 +3,7 @@ import Post from "./Post"
 import React from "react"
 import "./styles.css"
 
-const posts = [
+const initialPosts = [
     {
         imageSrc: "https://images.pexels.com/photos/5764701/pexels-photo-5764701.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     },
@@ -30,6 +30,8 @@ const App = () => {
     const [title, setTitle] = React.useState("")
     const [content, setContent] = React.useState("")
     const [image, setImage] = React.useState("")
+    const [posts, setPosts] = React.useState(initialPosts)
+
     const handleTitleChange = (e) => {
         setTitle(e.target.value)
     }
@@ -42,7 +44,17 @@ const App = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
+
+        setPosts([
+            ...posts,
+            {
+                title: title,
+                imageSrc: image
+            }
+        ])
+
+
     }
     return (
         <div>
