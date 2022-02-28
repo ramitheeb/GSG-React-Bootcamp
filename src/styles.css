@@ -27,3 +27,9 @@ body {
     gap:20px;
     align-items: center;
 }
+.form{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    max-width: 500px;
+}

@@ -31,9 +31,9 @@ const Post = (props) => {
 
 
 
-        {likes > 10 ? <h3 style={{
+        {likes > 10 && <h3 style={{
             color: "red"
-        }} >Trending !!!!!</h3> : null
+        }} >Trending !!!!!</h3>
         }
 
 
