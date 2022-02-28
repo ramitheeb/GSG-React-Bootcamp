@@ -1,5 +1,6 @@
 
 import Post from "./Post"
+import "./styles.css"
 
 const posts = [
     {
@@ -28,7 +29,7 @@ const App = () => {
 
     return (
 
-        <div>
+        <div className="container">
             {posts.map((post) => <Post title={post.title} imageSrc={post.imageSrc} />)}
         </div>
     );

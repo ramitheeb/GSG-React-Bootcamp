@@ -1,0 +1,29 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #fafafa;
+}
+
+.Post {
+  background-color: white;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px firebrick solid;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.title {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  color: firebrick;
+}
+
+.likeContainer{
+    display: flex;
+    gap:20px;
+    align-items: center;
+}
