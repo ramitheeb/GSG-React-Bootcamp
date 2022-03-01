@@ -22,14 +22,17 @@ body {
   color: firebrick;
 }
 
-.likeContainer{
-    display: flex;
-    gap:20px;
-    align-items: center;
+.navLink {
+  margin: 10px;
 }
-.form{
-    display: flex;
-    flex-direction: column;
-    gap:20px;
-    max-width: 500px;
+.likeContainer {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
 }
