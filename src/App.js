@@ -27,12 +27,38 @@ const initialPosts = [
 
 
 
+
+
+
+
 const App = () => {
+
+
+
+
+
+
+
+
+
+
 
     const [title, setTitle] = React.useState("")
     const [content, setContent] = React.useState("")
     const [image, setImage] = React.useState("")
     const [posts, setPosts] = React.useState(initialPosts)
+
+
+    React.useEffect(() => {
+        console.log("mounted")
+
+        fetch('https://jsonplaceholder.typicode.com/posts/1')
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+
+
+    }, [])
 
 
     const [count, setCount] = React.useState(0);
