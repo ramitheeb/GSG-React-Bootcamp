@@ -1,11 +1,7 @@
 import React from "react"
+import PropTypes from 'prop-types';
 
 
-const state = () => {
-
-
-    return [1, 2]
-}
 
 const Post = (props) => {
 
@@ -37,6 +33,11 @@ const Post = (props) => {
 
 
     </div>
+}
+
+Post.propTypes = {
+    title: PropTypes.string,
+    body: PropTypes.string.isRequired
 }
 
 export default Post 

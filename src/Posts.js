@@ -1,6 +1,8 @@
 import React from "react"
 import Counter from "./Counter"
 import Post from "./Post"
+import TextField from '@mui/material/TextField';
+
 const Posts = () => {
 
     const [title, setTitle] = React.useState("")
@@ -58,8 +60,9 @@ const Posts = () => {
 
             <div>
                 <form className="form" onSubmit={handleSubmit} >
-                    <input type="text" placeholder="title" value={title} onChange={handleTitleChange} />
-                    <input type="text" placeholder="body" value={body} onChange={handleBodyChange} />
+                    <TextField placeholder="Title" label="Title" variant="outlined" value={title} onChange={handleTitleChange} />
+                    <TextField placeholder="body" label="body" variant="outlined" value={body} onChange={handleBodyChange} />
+
                     <input type="submit" />
                 </form>
             </div>
