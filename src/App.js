@@ -2,6 +2,7 @@
 import Post from "./Post"
 import React from "react"
 import "./styles.css"
+import Counter from "./Counter"
 
 const initialPosts = [
     {
@@ -27,10 +28,18 @@ const initialPosts = [
 
 
 const App = () => {
+
     const [title, setTitle] = React.useState("")
     const [content, setContent] = React.useState("")
     const [image, setImage] = React.useState("")
     const [posts, setPosts] = React.useState(initialPosts)
+
+
+    const [count, setCount] = React.useState(0);
+    const handleAdd = () => {
+        setCount(count + 1)
+    }
+
 
     const handleTitleChange = (e) => {
         setTitle(e.target.value)
@@ -44,8 +53,6 @@ const App = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-
         setPosts([
             ...posts,
             {
@@ -53,11 +60,18 @@ const App = () => {
                 imageSrc: image
             }
         ])
-
-
+        setImage("")
+        setTitle("")
+        setContent("")
     }
+
+
+
     return (
         <div>
+            <Counter count={count} handleAdd={handleAdd} />
+            <Counter count={count} handleAdd={handleAdd} />
+
             <div>
                 <form className="form" onSubmit={handleSubmit} >
                     <input type="text" placeholder="title" value={title} onChange={handleTitleChange} />
