@@ -15,12 +15,30 @@ const toDos = [
     {
         id: 2,
         title: "To Do 2",
-        isDone: false,
+        isDone: true,
         createdAt: new Date(),
     },
     {
         id: 3,
         title: "To Do 3",
+        isDone: false,
+        createdAt: new Date(),
+    },
+    {
+        id: 4,
+        title: "To Do 4",
+        isDone: true,
+        createdAt: new Date(),
+    },
+    {
+        id: 5,
+        title: "To Do 5",
+        isDone: false,
+        createdAt: new Date(),
+    },
+    {
+        id: 6,
+        title: "To Do 6",
         isDone: false,
         createdAt: new Date(),
     }
@@ -46,6 +64,10 @@ const ToDos = () => {
 
     const [value, setValue] = React.useState(0);
 
+    const done = toDos.filter(todo => todo.isDone)
+    const notDone = toDos.filter(todo => !todo.isDone)
+
+
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -65,12 +87,8 @@ const ToDos = () => {
                     maxHeight: '500px',
                     overflowY: 'scroll',
                 }} >
-                    <ToDoRow title="hiiiiiiiiiiiiiii" date={new Date()} isDone={true} />
-                    <ToDoRow title="hiiiiiiiiiiiiiii" date={new Date()} isDone={true} />
-                    <ToDoRow title="hiiiiiiiiiiiiiii" date={new Date()} isDone={true} />
-                    <ToDoRow title="hiiiiiiiiiiiiiii" date={new Date()} isDone={true} />
-                    <ToDoRow title="hiiiiiiiiiiiiiii" date={new Date()} isDone={true} />
-                    <ToDoRow title="hiiiiiiiiiiiiiii" date={new Date()} isDone={true} />
+
+                    {notDone.map(toDo => <ToDoRow title={toDo.title} date={toDo.createdAt} isDone={toDo.isDone} />)}
 
                 </div>
             </TabPanel>
@@ -79,12 +97,10 @@ const ToDos = () => {
                     maxHeight: '500px',
                     overflowY: 'scroll',
                 }} >
-                    <ToDoRow title="2222" date={new Date()} isDone={true} />
-                    <ToDoRow title="2222" date={new Date()} isDone={true} />
-                    <ToDoRow title="hiii222iiiiiiiiiiii" date={new Date()} isDone={true} />
-                    <ToDoRow title="hi222iiiiiiiiiiiiii" date={new Date()} isDone={true} />
-                    <ToDoRow title="hi2iiiiiiiiiiiiii" date={new Date()} isDone={true} />
-                    <ToDoRow title="hiiiiiiiiiiiiiii" date={new Date()} isDone={true} />
+                    {
+                        done.map(toDo => <ToDoRow title={toDo.title} date={toDo.createdAt} isDone={toDo.isDone} />
+                        )
+                    }
 
                 </div>
             </TabPanel>
