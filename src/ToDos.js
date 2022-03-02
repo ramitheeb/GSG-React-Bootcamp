@@ -5,44 +5,6 @@ import React from "react"
 import Typography from '@mui/material/Typography';
 import ToDoRow from "./ToDoRow"
 
-const initialToDos = [
-    {
-        id: 1,
-        title: "To Do 1",
-        isDone: false,
-        createdAt: new Date(),
-    },
-    {
-        id: 2,
-        title: "To Do 2",
-        isDone: true,
-        createdAt: new Date(),
-    },
-    {
-        id: 3,
-        title: "To Do 3",
-        isDone: false,
-        createdAt: new Date(),
-    },
-    {
-        id: 4,
-        title: "To Do 4",
-        isDone: true,
-        createdAt: new Date(),
-    },
-    {
-        id: 5,
-        title: "To Do 5",
-        isDone: false,
-        createdAt: new Date(),
-    },
-    {
-        id: 6,
-        title: "To Do 6",
-        isDone: false,
-        createdAt: new Date(),
-    }
-]
 
 
 
@@ -62,11 +24,18 @@ function TabPanel(props) {
 
 const ToDos = () => {
 
-    const [toDos, setToDos] = React.useState(initialToDos)
+    const [toDos, setToDos] = React.useState([])
+
+    React.useEffect(() => {
+
+        const myToDos = localStorage.getItem("myTodos")
+        const parsedToDos = JSON.parse(myToDos)
+        setToDos(parsedToDos)
+    }, [])
+
 
     const handleItemCheckboxClick = (id, newValue) => {
         const changedItem = toDos.find(item => item.id === id)
-
 
         const modifiedToDos = toDos.map((toDo) => {
             if (toDo.id !== id) return toDo;
@@ -77,11 +46,8 @@ const ToDos = () => {
             }
         })
 
-
-
         setToDos(modifiedToDos)
-
-
+        localStorage.setItem("myTodos", JSON.stringify(modifiedToDos))
     }
 
     const [value, setValue] = React.useState(0);

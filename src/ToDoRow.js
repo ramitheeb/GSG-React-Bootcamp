@@ -14,7 +14,7 @@ const ToDoRow = (props) => {
         <div className="ToDoRow">
             <div>
                 <p className='title'> {title}</p>
-                <p className='date'>{createdAt.toDateString()}</p>
+                <p className='date'>{new Date(createdAt).toDateString()}</p>
             </div>
             <Checkbox
                 checked={isDone}
