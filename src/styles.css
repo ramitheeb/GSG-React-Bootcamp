@@ -10,3 +10,15 @@ html {
   align-items: center;
   height: 100vh;
 }
+
+.ToDoRow {
+  border: 2px solid grey;
+  padding: 10px;
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+}
+.title{
+    font-size: 20px;
+    font-weight: bold;
+}
