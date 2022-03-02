@@ -4,6 +4,8 @@ import Tabs from '@mui/material/Tabs';
 import React from "react"
 import Typography from '@mui/material/Typography';
 import ToDoRow from "./ToDoRow"
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 
 
@@ -25,6 +27,7 @@ function TabPanel(props) {
 const ToDos = () => {
 
     const [toDos, setToDos] = React.useState([])
+    const [newToDo, setNewToDo] = React.useState("")
 
     React.useEffect(() => {
 
@@ -60,6 +63,26 @@ const ToDos = () => {
         setValue(newValue);
     };
 
+    const handleNewToDoChange = (e) => {
+        setNewToDo(e.target.value)
+    }
+
+    const handleAddToDo = () => {
+
+        const newToDoItem = {
+            id: new Date().getTime(),
+            title: newToDo,
+            createdAt: new Date(),
+            isDone: false
+        }
+
+
+        const newToDos = [...toDos, newToDoItem]
+        setToDos(newToDos)
+        localStorage.setItem("myTodos", JSON.stringify(newToDos))
+        setNewToDo("")
+    }
+
 
     return (<div>
         <Box sx={{ width: '100%' }}>
@@ -71,6 +94,9 @@ const ToDos = () => {
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
+                <TextField value={newToDo} onChange={handleNewToDoChange} id="outlined-basic" label="Outlined" variant="outlined" />
+                <Button onClick={handleAddToDo} variant="contained">Contained</Button>
+
                 <div style={{
                     maxHeight: '500px',
                     overflowY: 'scroll',
