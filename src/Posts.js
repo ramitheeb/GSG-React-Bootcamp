@@ -2,6 +2,7 @@ import React from "react"
 import Counter from "./Counter"
 import Post from "./Post"
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const Posts = () => {
 
@@ -59,11 +60,10 @@ const Posts = () => {
             <Counter count={count} handleAdd={handleAdd} />
 
             <div>
-                <form className="form" onSubmit={handleSubmit} >
+                <form className="form" >
                     <TextField placeholder="Title" label="Title" variant="outlined" value={title} onChange={handleTitleChange} />
                     <TextField placeholder="body" label="body" variant="outlined" value={body} onChange={handleBodyChange} />
-
-                    <input type="submit" />
+                    <Button variant="contained" onClick={handleSubmit}>Add</Button>
                 </form>
             </div>
             <div className="container">
