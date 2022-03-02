@@ -30,7 +30,7 @@ const ToDos = () => {
 
         const myToDos = localStorage.getItem("myTodos")
         const parsedToDos = JSON.parse(myToDos)
-        setToDos(parsedToDos)
+        setToDos(parsedToDos ?? [])
     }, [])
 
 
