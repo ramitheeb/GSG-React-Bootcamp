@@ -1,6 +1,10 @@
+import ToDos from "./ToDos";
+import "./styles.css"
+
+
 const App = () => {
-    return <div>
-        <h1>Hello World from App.js </h1>
+    return <div className="centered">
+        <ToDos />
     </div>
 }
 
