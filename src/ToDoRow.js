@@ -4,12 +4,17 @@ import React from 'react';
 
 
 const ToDoRow = (props) => {
-    const { title, date, isDone, handleChange } = props;
+    const { title, createdAt, isDone, handleItemCheckboxClick, id } = props;
+
+    const handleChange = (event) => {
+        handleItemCheckboxClick(id, event.target.checked);
+    }
+
     return (
         <div className="ToDoRow">
             <div>
                 <p className='title'> {title}</p>
-                <p className='date'>{date.toDateString()}</p>
+                <p className='date'>{createdAt.toDateString()}</p>
             </div>
             <Checkbox
                 checked={isDone}
